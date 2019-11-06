@@ -257,6 +257,7 @@ Public Class frmMain
         My.Settings.ComboBoxIndex = cmbProcedure.SelectedIndex
         My.Settings.FromDate = dtpckrFromDate.Value
         My.Settings.ToDate = dtpckrToDate.Value
+        My.Settings.Save()
 
         Await Task.Run(AddressOf StartProcessing).ConfigureAwait(False)
     End Sub
