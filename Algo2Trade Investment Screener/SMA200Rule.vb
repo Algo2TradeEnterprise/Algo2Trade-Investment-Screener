@@ -60,7 +60,7 @@ Public Class SMA200Rule
                                     row("Instrument") = inputPayload.LastOrDefault.Value.TradingSymbol
                                     row("SMA %") = aboveSMA200Avg
                                     row("52 Weeks High") = yearHigh
-                                    row("HC Diff %") = Math.Round(((inputPayload.LastOrDefault.Value.High - inputPayload.LastOrDefault.Value.Close) / inputPayload.LastOrDefault.Value.High) * 100, 2)
+                                    row("HC Diff %") = Math.Round(((yearHigh - inputPayload.LastOrDefault.Value.Close) / yearHigh) * 100, 2)
                                     ret.Rows.Add(row)
                                 End If
                             End If
