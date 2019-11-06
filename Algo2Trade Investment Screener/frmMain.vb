@@ -250,6 +250,7 @@ Public Class frmMain
     End Sub
 
     Private Async Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
+        SetDatagridBindDatatable_ThreadSafe(dgrvMain, Nothing)
         SetObjectEnableDisable_ThreadSafe(btnStart, False)
         SetObjectEnableDisable_ThreadSafe(btnStop, True)
         SetObjectEnableDisable_ThreadSafe(btnExport, True)
