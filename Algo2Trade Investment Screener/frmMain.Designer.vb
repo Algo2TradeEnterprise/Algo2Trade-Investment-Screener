@@ -167,7 +167,6 @@ Partial Class frmMain
         Me.lblMainStatus.Name = "lblMainStatus"
         Me.lblMainStatus.Size = New System.Drawing.Size(781, 25)
         Me.lblMainStatus.TabIndex = 49
-        Me.lblMainStatus.Text = "Progress Status"
         '
         'frmMain
         '

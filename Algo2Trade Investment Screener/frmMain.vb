@@ -288,7 +288,8 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox(ex.ToString, MsgBoxStyle.Critical)
         Finally
-            OnHeartbeat("Process Complete")
+            OnHeartbeat(String.Format("Process Complete. Number of records: {0}", dgrvMain.Rows.Count))
+            OnHeartbeatMain("")
             SetObjectEnableDisable_ThreadSafe(btnStart, True)
             SetObjectEnableDisable_ThreadSafe(btnStop, False)
             SetObjectEnableDisable_ThreadSafe(btnExport, True)
