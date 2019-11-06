@@ -53,7 +53,7 @@ Public Class SMA200Rule
                             _cts.Token.ThrowIfCancellationRequested()
                             If totalDayCount <> 0 Then
                                 Dim aboveSMA200Avg As Decimal = Math.Round((aboveSMACount / totalDayCount) * 100, 2)
-                                If aboveSMA200Avg > 85 Then
+                                If aboveSMA200Avg >= 85 Then
                                     Dim row As DataRow = ret.NewRow
                                     row("Date") = inputPayload.LastOrDefault.Value.PayloadDate.ToString("yyyy-MM-dd")
                                     row("Instrument") = inputPayload.LastOrDefault.Value.TradingSymbol
