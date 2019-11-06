@@ -35,6 +35,7 @@ Partial Class frmMain
         Me.dgrvMain = New System.Windows.Forms.DataGridView()
         Me.lblProgress = New System.Windows.Forms.Label()
         Me.saveFile = New System.Windows.Forms.SaveFileDialog()
+        Me.lblMainStatus = New System.Windows.Forms.Label()
         CType(Me.dgrvMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -142,27 +143,38 @@ Partial Class frmMain
         Me.dgrvMain.ReadOnly = True
         Me.dgrvMain.RowHeadersVisible = False
         Me.dgrvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgrvMain.Size = New System.Drawing.Size(781, 385)
+        Me.dgrvMain.Size = New System.Drawing.Size(781, 376)
         Me.dgrvMain.TabIndex = 48
         '
         'lblProgress
         '
         Me.lblProgress.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblProgress.Location = New System.Drawing.Point(6, 478)
+        Me.lblProgress.Location = New System.Drawing.Point(6, 469)
         Me.lblProgress.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblProgress.Name = "lblProgress"
-        Me.lblProgress.Size = New System.Drawing.Size(781, 70)
+        Me.lblProgress.Size = New System.Drawing.Size(781, 47)
         Me.lblProgress.TabIndex = 47
         Me.lblProgress.Text = "Progress Status"
         '
         'saveFile
         '
         '
+        'lblMainStatus
+        '
+        Me.lblMainStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblMainStatus.Location = New System.Drawing.Point(6, 523)
+        Me.lblMainStatus.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblMainStatus.Name = "lblMainStatus"
+        Me.lblMainStatus.Size = New System.Drawing.Size(781, 25)
+        Me.lblMainStatus.TabIndex = 49
+        Me.lblMainStatus.Text = "Progress Status"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(793, 553)
+        Me.Controls.Add(Me.lblMainStatus)
         Me.Controls.Add(Me.dgrvMain)
         Me.Controls.Add(Me.lblProgress)
         Me.Controls.Add(Me.btnStart)
@@ -196,4 +208,5 @@ Partial Class frmMain
     Friend WithEvents dgrvMain As DataGridView
     Friend WithEvents lblProgress As Label
     Friend WithEvents saveFile As SaveFileDialog
+    Friend WithEvents lblMainStatus As Label
 End Class

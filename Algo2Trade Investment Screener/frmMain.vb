@@ -201,7 +201,7 @@ Public Class frmMain
         SetLabelText_ThreadSafe(lblProgress, message)
     End Sub
     Private Sub OnHeartbeatMain(message As String)
-        SetLabelText_ThreadSafe(lblProgress, message)
+        SetLabelText_ThreadSafe(lblMainStatus, message)
     End Sub
     Private Sub OnDocumentDownloadComplete()
         'OnHeartbeat("Document download compelete")
@@ -277,6 +277,7 @@ Public Class frmMain
             End Select
 
             AddHandler runningRule.Heartbeat, AddressOf OnHeartbeat
+            AddHandler runningRule.HeartbeatMain, AddressOf OnHeartbeatMain
             AddHandler runningRule.WaitingFor, AddressOf OnWaitingFor
             AddHandler runningRule.DocumentRetryStatus, AddressOf OnDocumentRetryStatus
             AddHandler runningRule.DocumentDownloadComplete, AddressOf OnDocumentDownloadComplete
@@ -287,6 +288,7 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox(ex.ToString, MsgBoxStyle.Critical)
         Finally
+            OnHeartbeat("Process Complete")
             SetObjectEnableDisable_ThreadSafe(btnStart, True)
             SetObjectEnableDisable_ThreadSafe(btnStop, False)
             SetObjectEnableDisable_ThreadSafe(btnExport, True)
