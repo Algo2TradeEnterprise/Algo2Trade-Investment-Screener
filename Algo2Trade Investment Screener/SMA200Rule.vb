@@ -27,7 +27,7 @@ Public Class SMA200Rule
                     Dim counter As Integer = 0
                     For Each stock In stockList
                         counter += 1
-                        OnHeartbeatMain(String.Format("Processing for {0} ({1}/{2})", stock, counter, stockList.Count))
+                        OnHeartbeatMain(String.Format("Processing for {0} ({1}/{2}) on {3}", stock, counter, stockList.Count, chkDate.ToString("yyyy-MM-dd")))
                         _cts.Token.ThrowIfCancellationRequested()
                         Dim inputPayload As Dictionary(Of Date, Payload) = Await _cmn.GetHistoricalDataAsync(Common.DataBaseTable.EOD_Cash, stock, chkDate.AddYears(-3), chkDate).ConfigureAwait(False)
                         _cts.Token.ThrowIfCancellationRequested()
