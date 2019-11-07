@@ -1,8 +1,5 @@
-﻿Imports System.IO
-Imports System.Net
-Imports System.Threading
+﻿Imports System.Threading
 Imports MySql.Data.MySqlClient
-Imports Utilities.Strings
 Imports NLog
 Imports Utilities.Network
 Imports System.Net.Http
@@ -777,6 +774,17 @@ Public Class Common
                 If ret Is Nothing Then ret = New List(Of String)
                 If Not ret.Contains(instrumentName) Then ret.Add(instrumentName)
             Next
+        End If
+        Return ret
+    End Function
+
+    Public Async Function IsTradingDay(ByVal tradingDate As Date) As Task(Of Boolean)
+        Dim ret As Boolean = False
+        Dim eodHistoricalData As Dictionary(Of Date, Payload) = Await GetHistoricalDataAsync(DataBaseTable.EOD_Cash, "JINDALSTEL", tradingDate, tradingDate).ConfigureAwait(False)
+        _cts.Token.ThrowIfCancellationRequested()
+        If eodHistoricalData IsNot Nothing AndAlso eodHistoricalData.Count > 0 Then
+            _cts.Token.ThrowIfCancellationRequested()
+            ret = True
         End If
         Return ret
     End Function
