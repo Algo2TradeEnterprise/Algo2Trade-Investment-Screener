@@ -29,7 +29,7 @@ Public Class SMA200Rule
                         counter += 1
                         OnHeartbeatMain(String.Format("Processing for {0} ({1}/{2}) on {3}", stock, counter, stockList.Count, chkDate.ToString("yyyy-MM-dd")))
                         _cts.Token.ThrowIfCancellationRequested()
-                        Dim inputPayload As Dictionary(Of Date, Payload) = Await _cmn.GetHistoricalDataAsync(Common.DataBaseTable.EOD_Cash, stock, chkDate.AddYears(-3), chkDate).ConfigureAwait(False)
+                        Dim inputPayload As Dictionary(Of Date, Payload) = _cmn.GetRawPayload(Common.DataBaseTable.EOD_POSITIONAL, stock, chkDate.AddYears(-3), chkDate)
                         _cts.Token.ThrowIfCancellationRequested()
                         If inputPayload IsNot Nothing AndAlso inputPayload.Count > 0 Then
                             'If inputPayload.LastOrDefault.Value.Close > 100 Then
