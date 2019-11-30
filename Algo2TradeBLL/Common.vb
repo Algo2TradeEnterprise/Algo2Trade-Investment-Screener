@@ -578,7 +578,7 @@ Public Class Common
         Dim activeInstruments As List(Of ActiveInstrumentData) = Nothing
 
         Select Case tableName
-            Case DataBaseTable.Intraday_Cash, DataBaseTable.EOD_Cash
+            Case DataBaseTable.Intraday_Cash, DataBaseTable.EOD_Cash, DataBaseTable.EOD_POSITIONAL
                 cm = New MySqlCommand("SELECT DISTINCT(`INSTRUMENT_TOKEN`),`TRADING_SYMBOL`,`EXPIRY` FROM `active_instruments_cash` WHERE `TRADING_SYMBOL` = @trd AND `AS_ON_DATE`=@sd", conn)
                 cm.Parameters.AddWithValue("@trd", String.Format("{0}", rawInstrumentName))
             Case DataBaseTable.Intraday_Currency, DataBaseTable.EOD_Currency
